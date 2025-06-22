@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hafeez Ur Rehman | Spring Boot Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            secondary: '#1e40af',
+            dark: '#1e293b',
+            light: '#f8fafc',
+          },
+          animation: {
+            'float': 'float 3s ease-in-out infinite',
+            'fade-in': 'fadeIn 0.5s ease-in',
+            'slide-up': 'slideUp 0.5s ease-out',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            }
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .gradient-text {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(90deg, #2563eb, #1e40af);
+    }
+    .project-card {
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.9) 100%);
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #2563eb;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .skill-pill {
+      transition: all 0.2s ease;
+    }
+    .skill-pill:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+        
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-white text-slate-800">
+  <!-- Header -->
+  <header class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-primary flex items-center">
+        Hafeez Ur Rehman
+      </a>
+      <nav class="hidden md:flex space-x-8 font-medium">
+        <a href="#about" class="nav-link text-slate-700 hover:text-primary">About</a>
+        <a href="#projects" class="nav-link text-slate-700 hover:text-primary">Projects</a>
+        <a href="#skills" class="nav-link text-slate-700 hover:text-primary">Skills</a>
+        <a href="#contact" class="nav-link text-slate-700 hover:text-primary">Contact</a>
+      </nav>
+      <button id="mobile-menu-button" class="md:hidden text-slate-700">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+      <div class="flex flex-col space-y-4 px-6 py-4">
+        <a href="#about" class="nav-link text-slate-700 hover:text-primary py-2">About</a>
+        <a href="#projects" class="nav-link text-slate-700 hover:text-primary py-2">Projects</a>
+        <a href="#skills" class="nav-link text-slate-700 hover:text-primary py-2">Skills</a>
+        <a href="#contact" class="nav-link text-slate-700 hover:text-primary py-2">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+<section class="min-h-screen flex items-center pt-32 pb-20 md:pt-16 md:pb-24">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-12 md:mb-0 animate-slide-up">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                Hi, I'm <span class="gradient-text">Hafeez Ur Rehman</span>
+            </h1>
+        <h2 class="text-2xl md:text-3xl font-semibold text-slate-600 mb-8">
+          Spring Boot Backend Developer
+        </h2>
+        <p class="text-lg text-slate-600 mb-10 max-w-lg">
+          I build robust, scalable backend systems with Java and Spring Boot that power modern web applications.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#projects" class="bg-primary hover:bg-secondary text-white px-8 py-3 rounded-lg font-medium shadow-lg transition duration-300 flex items-center">
+            <i class="fas fa-laptop-code mr-2"></i> View Projects
+          </a>
+          <a href="#contact" class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-lg font-medium transition duration-300 flex items-center">
+            <i class="fas fa-paper-plane mr-2"></i> Contact Me
+          </a>
+        </div>
+      </div>
+      <div class="md:w-1/2 flex justify-center animate-float">
+        <div class="relative">
+          <div class="absolute -inset-4 bg-primary rounded-2xl opacity-10 blur-xl"></div>
+          <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+               alt="Developer working" 
+               class="relative z-10 rounded-2xl shadow-xl w-full max-w-md border-4 border-white">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-16">
+        <span class="border-b-4 border-primary pb-2">About Me</span>
+      </h2>
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/3 flex justify-center">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-primary rounded-full opacity-10 blur-lg"></div>
+            <img src="/images/portfolio-img.jpeg" 
+                 alt="Hafeez Ur Rehman" 
+                 class="relative z-10 w-64 h-64 rounded-full object-cover object-top border-4 border-white shadow-lg origin-top">
+          </div>
+        </div>
+        <div class="md:w-2/3">
+          <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+            I'm a passionate backend developer specializing in <strong class="text-primary">Java</strong> and <strong class="text-primary">Spring Boot</strong>. With experience in building robust APIs and scalable systems, I focus on creating efficient, secure, and maintainable backend solutions.
+          </p>
+          <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+            My expertise includes designing RESTful APIs, implementing authentication with JWT, optimizing database performance, and integrating with various third-party services. I'm particularly interested in microservices architecture and cloud-native applications.
+          </p>
+          <p class="text-lg text-slate-700 mb-8 leading-relaxed">
+            When I'm not coding, you can find me contributing to open-source projects, learning about new technologies, or mentoring junior developers.
+          </p>
+          <div class="flex flex-wrap gap-6">
+            <div class="flex items-center bg-blue-50 px-4 py-2 rounded-lg">
+              <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+              <span class="text-slate-700">Kasur, Pakistan</span>
+            </div>
+            <div class="flex items-center bg-blue-50 px-4 py-2 rounded-lg">
+              <i class="fas fa-envelope text-primary mr-2"></i>
+              <span class="text-slate-700">hafeezurehman7851@gmail.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-16">
+        <span class="border-b-4 border-primary pb-2">Featured Projects</span>
+      </h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- E-Commerce API -->
+        <div class="project-card rounded-xl overflow-hidden border border-slate-200 animate-fade-in">
+          <div class="h-48 overflow-hidden">
+            <img src="/images/ecommerce-api.avif" 
+                 alt="E-Commerce API" 
+                 class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <div class="bg-primary text-white p-2 rounded-lg mr-3">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-800">E-Commerce API</h3>
+            </div>
+            <p class="text-slate-600 mb-4">
+              Robust Spring Boot API for user authentication, product catalog management, and shopping cart functionality, secured with JWT & Spring Security.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Spring Boot</span>
+              <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">JWT</span>
+              <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">MySQL</span>
+              <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">REST API</span>
+            </div>
+            <div class="flex space-x-4">
+              <a href="https://github.com/hafeezu-rehman/myCart" target="_blank" class="text-primary hover:text-secondary font-medium flex items-center">
+                <i class="fab fa-github mr-2"></i> Code
+              </a>
+              <a href="#" class="text-primary hover:text-secondary font-medium flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> Demo
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Library System -->
+        <div class="project-card rounded-xl overflow-hidden border border-slate-200 animate-fade-in" style="animation-delay: 0.1s">
+          <div class="h-48 overflow-hidden">
+            <img src="/images/library-system.avif" 
+                 alt="Library System" 
+                 class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <div class="bg-primary text-white p-2 rounded-lg mr-3">
+                <i class="fas fa-book"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-800">Library System</h3>
+            </div>
+            <p class="text-slate-600 mb-4">
+              A full-featured library backend with member roles, JWT protection, book management, and admin dashboard functionalities built with Spring Boot.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Spring Boot</span>
+              <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Spring Security</span>
+              <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">PostgreSQL</span>
+              <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Thymeleaf</span>
+            </div>
+            <div class="flex space-x-4">
+            </div>
+          </div>
+        </div>
+        
+        <!-- ODO List Platform -->
+        <div class="project-card rounded-xl overflow-hidden border border-slate-200 animate-fade-in" style="animation-delay: 0.2s">
+          <div class="h-48 overflow-hidden">
+            <img src="/images/todolist.avif" 
+                 alt="TODO List Platform" 
+                 class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <div class="bg-primary text-white p-2 rounded-lg mr-3">
+                <i class="fas fa-clipboard-list"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-800">TODO List Platform</h3>
+            </div>
+            <p class="text-slate-600 mb-4">
+              A secure ToDo List web application with task management, JWT authentication, and RESTful APIs, built using Spring Boot, Thymeleaf, CSS, and AJAX for dynamic UI updates.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Spring Boot</span>
+              <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">MySQL</span>
+              <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">REST API</span>
+              <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Swagger</span>
+              <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Spring Security</span>
+              <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Thymeleaf</span>
+            </div>
+            <div class="flex space-x-4">
+              <a href="#" class="text-primary hover:text-secondary font-medium flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> Demo
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-16">
+        <span class="border-b-4 border-primary pb-2">Technical Skills</span>
+      </h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Backend Technologies -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+          <div class="flex items-center mb-6">
+            <div class="bg-primary text-white p-3 rounded-lg mr-4">
+              <i class="fas fa-server text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800">Backend Development</h3>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+              <i class="fab fa-java text-red-500 mr-2"></i> Java
+            </span>
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
+              Spring Boot
+            </span>
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
+              Spring Security
+            </span>
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
+              Spring Data JPA
+            </span>
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
+              REST APIs
+            </span>
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
+              Hibernate
+            </span>
+          </div>
+        </div>
+        
+        <!-- Database & DevOps -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+          <div class="flex items-center mb-6">
+            <div class="bg-primary text-white p-3 rounded-lg mr-4">
+              <i class="fas fa-database text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800">Databases</h3>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+              <i class="fas fa-database text-blue-500 mr-2"></i> MySQL
+            </span>
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
+              <i class="fas fa-database text-blue-500 mr-2"></i> PostgreSQL
+            </span>
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+              <i class="fas fa-database text-blue-500 mr-2"></i> Oracle
+            </span>
+          </div>
+        </div>
+        
+        <!-- Frontend & Tools -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+          <div class="flex items-center mb-6">
+            <div class="bg-primary text-white p-3 rounded-lg mr-4">
+              <i class="fas fa-tools text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800">Tools & Frontend</h3>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+              <i class="fab fa-html5 text-orange-500 mr-2"></i> HTML
+            </span>
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+              <i class="fab fa-css3-alt text-blue-500 mr-2"></i> CSS
+            </span>
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+              <i class="fab fa-js-square text-yellow-500 mr-2"></i> JavaScript
+            </span>
+
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+            <i class="fas fa-leaf text-green-500 mr-2"></i> Thymeleaf
+          </span>
+
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+              <i class="fab fa-git-alt text-orange-600 mr-2"></i> Git
+            </span>
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+              <i class="fab fa-github text-gray-800 mr-2"></i> GitHub
+            </span>
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
+              Postman
+            </span>
+            <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
+              Maven
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gradient-to-br from-primary to-secondary text-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+        <span class="border-b-4 border-white pb-2">Get In Touch</span>
+      </h2>
+      
+      <div class="flex flex-col lg:flex-row gap-12">
+        <div class="lg:w-1/2">
+          <h3 class="text-2xl font-bold mb-6">Let's work together!</h3>
+          <p class="text-blue-100 mb-8 leading-relaxed">
+            Have a project in mind or want to discuss potential opportunities? Feel free to reach out. I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+          </p>
+          
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="bg-white bg-opacity-20 p-3 rounded-lg mr-4">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Email</h4>
+                <a href="mailto:hafeezurehman7851@gmail.com" class="text-blue-100 hover:text-white">hafeezurehman7851@gmail.com</a>
+              </div>
+            </div>
+            
+            
+            <div class="flex items-start">
+              <div class="bg-white bg-opacity-20 p-3 rounded-lg mr-4">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Location</h4>
+                <p class="text-blue-100">Kasur, Pakistan</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-10">
+            <h4 class="font-bold mb-4">Connect with me</h4>
+            <div class="flex space-x-4">
+              <a href="https://github.com/hafeezu-rehman" target="_blank" class="bg-white bg-opacity-20 hover:bg-opacity-30 p-3 rounded-full transition duration-300">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/hafeezu-rehman" target="_blank" class="bg-white bg-opacity-20 hover:bg-opacity-30 p-3 rounded-full transition duration-300">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="lg:w-1/2">
+          <form id="contactForm" class="bg-white rounded-xl shadow-xl p-8 text-slate-800">
+            <h3 class="text-2xl font-bold text-primary mb-6">Send me a message</h3>
+            
+            <div class="space-y-4">
+              <div>
+                <label for="name" class="block font-medium mb-2">Name</label>
+                <input type="text" id="name" name="name" required 
+                       class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+              </div>
+              
+              <div>
+                <label for="email" class="block font-medium mb-2">Email</label>
+                <input type="email" id="email" name="email" required 
+                       class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+              </div>
+              
+              <div>
+                <label for="subject" class="block font-medium mb-2">Subject</label>
+                <input type="text" id="subject" name="subject" 
+                       class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+              </div>
+              
+              <div>
+                <label for="message" class="block font-medium mb-2">Message</label>
+                <textarea id="message" name="message" rows="5" required 
+                          class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+              </div>
+              
+              <button type="submit" 
+                      class="bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg font-medium w-full transition duration-300 mt-2">
+                Send Message
+              </button>
+            </div>
+            
+            <div id="formSuccess" class="hidden bg-green-100 text-green-800 p-3 rounded-lg mt-4 text-center">
+              <i class="fas fa-check-circle mr-2"></i> Your message has been sent successfully!
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-10">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <a href="#" class="text-2xl font-bold text-white flex items-center">
+            Hafeez Ur Rehman
+          </a>
+          <p class="mt-2">Spring Boot Backend Developer</p>
+        </div>
+        
+        <div class="flex flex-col items-center md:items-end">
+          <div class="flex space-x-6 mb-4">
+            <a href="#about" class="hover:text-white transition duration-300">About</a>
+            <a href="#projects" class="hover:text-white transition duration-300">Projects</a>
+            <a href="#skills" class="hover:text-white transition duration-300">Skills</a>
+            <a href="#contact" class="hover:text-white transition duration-300">Contact</a>
+          </div>
+          <div class="flex space-x-4">
+            <a href="https://github.com/hafeezu-rehman/" target="_blank" class="hover:text-white transition duration-300">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/hafeezu-rehman/" target="_blank" class="hover:text-white transition duration-300">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-slate-800 mt-8 pt-8 text-center">
+        <p>&copy; 2025 Hafeez Ur Rehman. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        // Close mobile menu if open
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+        }
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    document.getElementById("contactForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const successMsg = document.getElementById("formSuccess");
+    const errorMsg = document.getElementById("formError");
+
+    try {
+        const response = await fetch("https://formspree.io/f/xvgrbegj", {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+        });
+
+        if (response.ok) {
+        successMsg.classList.remove("hidden");
+        errorMsg.classList.add("hidden");
+        form.reset();
+        setTimeout(() => successMsg.classList.add("hidden"), 3000);
+        } else {
+        throw new Error('Form submission failed');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        errorMsg.classList.remove("hidden");
+        setTimeout(() => errorMsg.classList.add("hidden"), 3000);
+    }
+    });
+        
+    // Animation on scroll
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.project-card, .skill-pill');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+          element.style.opacity = '1';
+        }
+      });
+    };
+    
+    // Set initial opacity to 0 for animated elements
+    document.querySelectorAll('.project-card, .skill-pill').forEach(el => {
+      el.style.opacity = '0';
+    });
+    
+    // Run once on page load
+    animateOnScroll();
+    
+    // Run on scroll
+    window.addEventListener('scroll', animateOnScroll);
+  </script>
+</body>
+</html>
